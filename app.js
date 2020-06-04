@@ -1,4 +1,4 @@
-const auth = ""; //ADD THE AUTH KEY
+const auth = "563492ad6f9170000100000108df3cc30b9e4f91bb5f96369c04e90f";
 const gallery = document.querySelector(".gallery");
 const searchInput = document.querySelector(".search-input");
 const form = document.querySelector(".search-form");
@@ -10,7 +10,7 @@ let currentSearch;
 
 //Event Listeners
 searchInput.addEventListener("input", updateInput);
-form.addEventListener("submit", e => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   currentSearch = searchValue;
   searchPhotos(searchValue);
@@ -26,15 +26,15 @@ async function fetchApi(url) {
     method: "GET",
     headers: {
       Accept: "application/json",
-      Authorization: auth
-    }
+      Authorization: auth,
+    },
   });
   const data = await dataFetch.json();
   return data;
 }
 
 function generatePictures(data) {
-  data.photos.forEach(photo => {
+  data.photos.forEach((photo) => {
     const galleryImg = document.createElement("div");
     galleryImg.classList.add("gallery-img");
     galleryImg.innerHTML = `
